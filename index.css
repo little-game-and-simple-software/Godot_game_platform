@@ -6,10 +6,14 @@ h1
 }
 canvas
 {
-	
+	background-color:red;
 }
 p
 {
 	border-width:1px;
 	border-color:red;
+}
+button
+{
+	float:right;
 }

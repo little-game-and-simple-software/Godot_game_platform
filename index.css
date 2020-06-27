@@ -1,0 +1,19 @@
+h1
+{
+	text-align:center;
+	border-width:20px;
+	border-color:red;
+}
+canvas
+{
+	background-color:red;
+}
+p
+{
+	border-width:1px;
+	border-color:red;
+}
+button
+{
+	float:right;
+}

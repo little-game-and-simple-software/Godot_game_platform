@@ -35,18 +35,22 @@ public class D implements ActionListener
 		}
 		//允许输出
 		c.setDoInput(true);
-		c.setDoOutput(true);
+		c.setDoOutput(false);
 		try{
-			OutputStream out=c.getOutputStream();
-			Easy.syso("得到输出流"+out);
+		//	OutputStream out=c.getOutputStream();
+			//Easy.syso("得到输出流"+out);
 			InputStream in=c.getInputStream();
 			Easy.syso("得到输入流",in);
 			int length=c.getContentLength();
+			Easy.syso("输入流长度int",length);
 			//写入输入流
-			//byte[] tmp_in;
-			//in.read()
-			Easy.syso("输入流长度",length);
-			out.close();
+			byte tmp_in=(byte)length;
+			Easy.syso("byte",tmp_in);
+			new Byte[]{};
+			n.read();
+			
+			
+		//	out.close();
 		}catch(IOException e11)
 		{
 			

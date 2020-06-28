@@ -30,7 +30,7 @@ public class kde extends Frame
 		
 		root.add(download);
 		root.add(user_btn);
-	
+		super.validate();
 
 		main_layout.addWindowListener(new WindowAdapter()
 		{

@@ -1,18 +1,18 @@
-import java.io.*;
-import java.net.URLEncoder.*;
+//package org.hh128;
 import java.awt.*;
+import java.io.*;
 import java.awt.event.*;
+//import java.net.*;
+//import org.hh128.download;
 //65001 936gbk
-
 
 public class kde extends Frame
 {	
 	static kde main_layout;
-	public static void main(String[] args) throws IOException
+	public static void main(String[] args) 
 	{	
 	// cmd /k start
 		kde main_layout=new kde();
-		System.out.println("我");
 		main_layout.setVisible(true);
 		main_layout.setSize(800,600);
 		main_layout.setTitle("godot游戏平台");
@@ -20,17 +20,18 @@ public class kde extends Frame
 		
 		Button user_btn=new Button("游客用户");
 		
-		Button download_godot=new Button("下载客户端");
-		download_godot.addActionListener(new download());
+		Button download=new Button("下载客户端");
+		download.addActionListener(new D());
 		
 		user_btn.setBounds(0,0,200,200);
 		
 		Panel root=new Panel();
 		main_layout.add(root);
 		
-		root.add(download_godot);
-		root.add(user_btn);
-		
+		root.add(download);
+	root.add(user_btn);
+	
+
 		main_layout.addWindowListener(new WindowAdapter()
 		{
 		public void windowClosing(WindowEvent e)
@@ -38,8 +39,5 @@ public class kde extends Frame
 			System.exit(0);
 			}	
 		});
-
 	}
-
-	
 }

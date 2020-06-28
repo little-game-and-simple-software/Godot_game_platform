@@ -41,13 +41,18 @@ public class D implements ActionListener
 			//Easy.syso("得到输出流"+out);
 			InputStream in=c.getInputStream();
 			Easy.syso("得到输入流",in);
-			int length=c.getContentLength();
-			Easy.syso("输入流长度int",length);
+			Integer my_length=c.getContentLength();
+			
+			byte my_byte_len=my_length.byteValue();
+			Easy.syso("输入流长度int",my_length);
+			Easy.syso("输入流长度byte",my_byte_len);
+			
 			//写入输入流
-			byte tmp_in=(byte)length;
-			Easy.syso("byte",tmp_in);
-			new Byte[]{};
-			n.read();
+			download_Thread.in=in;
+			new download_Thread().run();
+			//Easy.syso("byte",tmp_in);
+			//byte[] a=new byte[1024];
+		//	in.read();
 			
 			
 		//	out.close();

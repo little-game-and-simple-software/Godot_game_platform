@@ -10,7 +10,7 @@ public class D implements ActionListener
 	static String url2="https://static.q-plants.com/Godot_v3.2.2-stable_win64.exe.zip";
 	static File f=new File("/");
 	static URL url;
-	static URLConnection connection;
+	static URLConnection c;
 	public static void download() 
 	{
 		try{
@@ -23,14 +23,34 @@ public class D implements ActionListener
 		}catch(MalformedURLException e2)
 		{}
 		try{
-		URLConnection c=url.openConnection();
+		c=url.openConnection();
 		Easy.syso("获得的内容",c);
-		OutputStream out=c.getOutputStream();
-		Easy.syso("得到输出流"+out);
+		
+		
+		
 		}
 		catch(IOException e3)
 		{
 			Easy.syso("IOE异常",e3);
+		}
+		//允许输出
+		c.setDoInput(true);
+		c.setDoOutput(true);
+		try{
+			OutputStream out=c.getOutputStream();
+			Easy.syso("得到输出流"+out);
+			InputStream in=c.getInputStream();
+			Easy.syso("得到输入流",in);
+			int length=c.getContentLength();
+			//写入输入流
+			//byte[] tmp_in;
+			//in.read()
+			Easy.syso("输入流长度",length);
+			out.close();
+		}catch(IOException e11)
+		{
+			
+			Easy.syso("IOE异常",e11);
 		}
 	}
 		@Override

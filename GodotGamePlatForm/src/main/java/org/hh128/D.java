@@ -3,7 +3,7 @@ import java.awt.*;
 import java.io.*;
 import java.awt.event.*;
 import java.net.*;
-import java.awt.event.WindowEvent;
+//import java.awt.event.WindowEvent;
 public class D implements ActionListener
 {		
 	static String url1="ftp://6394195.host131.sanfengyun.cn/Data/Godot_v3.2.1-stable_win64.exe";
@@ -12,6 +12,7 @@ public class D implements ActionListener
 	static File f=new File("/");
 	static URL url;
 	static URLConnection c;
+	
 	public static void download() 
 	{
 		try{
@@ -63,7 +64,15 @@ public class D implements ActionListener
 			Easy.syso("IOE异常",e11);
 		}
 	}
-		@Override
+		
+		public static abstract class Close implements WindowListener
+		{
+			@Override
+			public void windowDeactivated(WindowEvent e)
+			{
+				Easy.syso("Dbug.............................");
+			}
+		}
 		public void actionPerformed(ActionEvent e) 
 		{
 			System.out.println(e);
@@ -82,21 +91,12 @@ public class D implements ActionListener
 				label.setText("我是本软件作者128hh,感谢开源游戏引擎Godot提供的核心技术 \n 联系微信:13023335265 \n qq:2439905184");
 				dialog.add(label);
 				dialog.setVisible(true);
-				dialog.addWindowStateListener(new WindowStateListener()
+			dialog.addWindowListener(new Close()
 				{
-				
 					@Override
-					public void windowStateChanged(WindowEvent e)
-					{
-						Easy.syso("进入window");
-						if(e.getNewState()==WindowEvent.WINDOW_CLOSING)
-						{
-							Easy.syso("new");
-							dialog.remove(label);
-						}
-					}
+					public void windowDeactivated(WindowEvent e)
+					{}
 				});
-				
 			}
 		}
 }

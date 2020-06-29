@@ -1,6 +1,10 @@
 import java.awt.event.*;
+import java.awt.*;
 public  class Close implements WindowListener
 {
+	private boolean ActionClose=false;
+	//private enum ActionClose;
+	public static Dialog a;
 	@Override
 	public void windowDeactivated(WindowEvent e)
 	{
@@ -24,7 +28,11 @@ public  class Close implements WindowListener
 	{}
 	@Override 
 	public void windowClosing(WindowEvent e)
-	{}	
+	{
+		Easy.syso("关闭窗口");
+		Easy.syso(a);
+		a.dispose();
+	}	
 	@Override 
 	public void windowOpened(WindowEvent e)
 	{}	

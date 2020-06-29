@@ -1,9 +1,9 @@
 import java.io.*;
 public class download_Thread extends Thread
 {
-	//从Download下载器来的输入流
+	//浠嶥ownload涓嬭浇鍣ㄦ潵鐨勮緭鍏ユ祦
 	static protected InputStream in;
-	//tmp预读取int
+	//tmp棰勮鍙杋nt
 	static Integer tmp_int;
 	
 	public static Integer tmp_in;
@@ -16,6 +16,6 @@ public class download_Thread extends Thread
 				Easy.syso(tmp_int);
 			}
 	}catch(IOException e){}
-			Easy.syso("完成");
+			Easy.syso("瀹屾垚");
 	}
 }

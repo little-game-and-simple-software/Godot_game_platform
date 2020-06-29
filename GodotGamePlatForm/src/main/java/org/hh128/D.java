@@ -3,6 +3,7 @@ import java.awt.*;
 import java.io.*;
 import java.awt.event.*;
 import java.net.*;
+import java.awt.event.WindowEvent;
 public class D implements ActionListener
 {		
 	static String url1="ftp://6394195.host131.sanfengyun.cn/Data/Godot_v3.2.1-stable_win64.exe";
@@ -24,30 +25,30 @@ public class D implements ActionListener
 		{}
 		try{
 		c=url.openConnection();
-		Easy.syso("»ñµÃµÄÄÚÈİ",c);
+		Easy.syso("è·å¾—çš„å†…å®¹",c);
 		
 		
 		
 		}
 		catch(IOException e3)
 		{
-			Easy.syso("IOEÒì³£",e3);
+			Easy.syso("IOEå¼‚å¸¸",e3);
 		}
-		//ÔÊĞíÊä³ö
+		//å…è®¸è¾“å‡º
 		c.setDoInput(true);
 		c.setDoOutput(false);
 		try{
 		//	OutputStream out=c.getOutputStream();
-			//Easy.syso("µÃµ½Êä³öÁ÷"+out);
+			//Easy.syso("å¾—åˆ°è¾“å‡ºæµ"+out);
 			InputStream in=c.getInputStream();
-			Easy.syso("µÃµ½ÊäÈëÁ÷",in);
+			Easy.syso("å¾—åˆ°è¾“å…¥æµ",in);
 			Integer my_length=c.getContentLength();
 			
 			byte my_byte_len=my_length.byteValue();
-			Easy.syso("ÊäÈëÁ÷³¤¶Èint",my_length);
-			Easy.syso("ÊäÈëÁ÷³¤¶Èbyte",my_byte_len);
+			Easy.syso("è¾“å…¥æµé•¿åº¦int",my_length);
+			Easy.syso("è¾“å…¥æµé•¿åº¦byte",my_byte_len);
 			
-			//Ğ´ÈëÊäÈëÁ÷
+			//å†™å…¥è¾“å…¥æµ
 			download_Thread.in=in;
 			new download_Thread().run();
 			//Easy.syso("byte",tmp_in);
@@ -59,7 +60,7 @@ public class D implements ActionListener
 		}catch(IOException e11)
 		{
 			
-			Easy.syso("IOEÒì³£",e11);
+			Easy.syso("IOEå¼‚å¸¸",e11);
 		}
 	}
 		@Override
@@ -67,9 +68,35 @@ public class D implements ActionListener
 		{
 			System.out.println(e);
 			String btn_name=e.getActionCommand();
-			if(btn_name.equals("ÏÂÔØ¿Í»§¶Ë"))
+			if(btn_name.equals("ä¸‹è½½å®¢æˆ·ç«¯"))
 			{
 				download();
+			}
+			if(btn_name.equals("å…³äº"))
+			{
+				Dialog dialog=new Dialog(kde.main_layout,"about");
+				dialog.setTitle("About");
+				dialog.setBounds(100,100,500,500);
+				Label label=new Label();
+				
+				label.setText("æˆ‘æ˜¯æœ¬è½¯ä»¶ä½œè€…128hh,æ„Ÿè°¢å¼€æºæ¸¸æˆå¼•æ“Godotæä¾›çš„æ ¸å¿ƒæŠ€æœ¯ \n è”ç³»å¾®ä¿¡:13023335265 \n qq:2439905184");
+				dialog.add(label);
+				dialog.setVisible(true);
+				dialog.addWindowStateListener(new WindowStateListener()
+				{
+				
+					@Override
+					public void windowStateChanged(WindowEvent e)
+					{
+						Easy.syso("è¿›å…¥window");
+						if(e.getNewState()==WindowEvent.WINDOW_CLOSING)
+						{
+							Easy.syso("new");
+							dialog.remove(label);
+						}
+					}
+				});
+				
 			}
 		}
 }

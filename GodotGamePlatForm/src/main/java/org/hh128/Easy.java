@@ -19,9 +19,9 @@ public class Easy
     }
  
     /**
-     * byte[]×ªint
-     * @param bytes ĞèÒª×ª»»³ÉintµÄÊı×é
-     * @return intÖµ
+     * byte[]è½¬int
+     * @param bytes éœ€è¦è½¬æ¢æˆintçš„æ•°ç»„
+     * @return intå€¼
      */
     public static int byteArrayToInt(byte[] bytes) {
         int value=0;

@@ -65,14 +65,7 @@ public class D implements ActionListener
 		}
 	}
 		
-		public static abstract class Close implements WindowListener
-		{
-			@Override
-			public void windowDeactivated(WindowEvent e)
-			{
-				Easy.syso("Dbug.............................");
-			}
-		}
+
 		public void actionPerformed(ActionEvent e) 
 		{
 			System.out.println(e);
@@ -91,12 +84,7 @@ public class D implements ActionListener
 				label.setText("我是本软件作者128hh,感谢开源游戏引擎Godot提供的核心技术 \n 联系微信:13023335265 \n qq:2439905184");
 				dialog.add(label);
 				dialog.setVisible(true);
-			dialog.addWindowListener(new Close()
-				{
-					@Override
-					public void windowDeactivated(WindowEvent e)
-					{}
-				});
+			dialog.addWindowListener(new Close());
 			}
 		}
 }

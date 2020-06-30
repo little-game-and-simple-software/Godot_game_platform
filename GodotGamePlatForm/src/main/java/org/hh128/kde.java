@@ -26,7 +26,7 @@ public class kde extends Frame
 		
 		Button about=new Button("关于");
 		about.addActionListener(new D());
-		user_btn.setBounds(0,0,200,200);
+		//user_btn.setBounds(0,0,200,200);
 		
 		//about.setBounds(0,0,200,200);
 		//Panel root=new Panel();
@@ -44,15 +44,21 @@ public class kde extends Frame
 				
 		//main_layout.add(root);
 		//滚动条
-		Scrollbar bar=new Scrollbar(Scrollbar.VERTICAL,0,1,0,100);
+		//Scrollbar bar=new Scrollbar(Scrollbar.VERTICAL,0,1,0,100);
 		//滚动panel
-		ScrollPane gun_pane=new ScrollPane();
-		main_layout.add(gun_pane);	
+		ScrollPane gun_pane=new ScrollPane(ScrollPane.SCROLLBARS_ALWAYS);
+		
+		//gun_pane.addImpl(about);
+		main_layout.add(gun_pane);
+		gun_pane.setBounds(0,0,500,500);
+		gun_pane.add(new Label("hello world"),0);
+		
+		gun_pane.validate();
 		//
 		//----------
 		
 		//---------
-		main_layout.add(bar);
+		
 
 		main_layout.add(download);
 		main_layout.add(user_btn);

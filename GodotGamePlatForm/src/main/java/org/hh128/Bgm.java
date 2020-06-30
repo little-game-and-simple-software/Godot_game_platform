@@ -1,4 +1,4 @@
-import javax.*;
+import javax.sound.midi.Patch;
 import java.io.*;
 public class Bgm extends Thread
 {

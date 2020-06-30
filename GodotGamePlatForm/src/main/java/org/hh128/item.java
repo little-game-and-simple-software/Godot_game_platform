@@ -16,14 +16,22 @@ public class item extends Canvas implements Accessible
 	private Label game_label;
 	//初始化下载积分 0为不需要积分
 	private int need_score =0;
+	@Override
+	public void paint(Graphics g)
+	{
+		g.drawString("hello",100,100);
+		Easy.syso("开始绘画");
+		//update(g);
+	}
 	public item(String game_name)
 	{
 		Button download_btn=new Button("aa");
 		Easy.syso("被创建了");
 		Easy.syso(getName());
 		setVisible(true);
-		setBackground(Color.red);
+		//setBackground(Color.red);
 		Easy.syso(getBackground());
+		
 	}
 	
 

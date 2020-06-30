@@ -15,7 +15,7 @@ public class kde extends Frame
 	// cmd /k start
 		kde main_layout=new kde();
 		main_layout.setVisible(true);
-		main_layout.setSize(800,600);
+		main_layout.setSize(1024,800);
 		main_layout.setTitle("godot游戏平台");
 		//main_layout.setBackground(Color.yellow);
 		
@@ -40,6 +40,7 @@ public class kde extends Frame
 	
 
 		//根界面
+		//extends Object
 		FlowLayout f=new FlowLayout();
 				
 		//main_layout.add(root);
@@ -51,7 +52,7 @@ public class kde extends Frame
 		//gun_pane.addImpl(about);
 		main_layout.add(gun_pane);
 		gun_pane.setBounds(0,0,500,500);
-		gun_pane.add(new Label("hello world"),0);
+		gun_pane.add(new item("testGame"));
 		
 		gun_pane.validate();
 		//

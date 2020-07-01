@@ -55,6 +55,7 @@ public class kde extends Frame
 		gun_pane.add(new item("testGame"));
 		
 		gun_pane.validate();
+		gun_pane.validate();
 		//
 		//----------
 		

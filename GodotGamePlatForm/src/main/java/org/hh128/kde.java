@@ -10,68 +10,66 @@ import java.awt.event.*;
 public class kde extends Frame
 {	
 	static kde main_layout;
-	public static void main(String[] args) 
-	{	
-	// cmd /k start
+	//按钮--------
+	static Button user_btn;
+	static Button about;
+	static Button download;
+	//----------
+	static FlowLayout flow;
+	
+	//初始化layout
+	public static void init_layout()
+	{
+		download=new Button("下载");
+		download.addActionListener(new D());
+		
+		//滚动panel
+		ScrollPane gun_pane=new ScrollPane(ScrollPane.SCROLLBARS_AS_NEEDED);
+		
+		//gun_pane.addImpl(about);
+		
+		//gun_pane是ScrollVIew
+		gun_pane.setBounds(0,0,500,500);
+		//布局 _inPanel是scrollview的子viewGroup
+		Panel _inPanel=new Panel();
+		gun_pane.add(_inPanel);
+		_inPanel.add(new item("aaa"));
+		gun_pane.validate();
+		
+		Button about=new Button("关于");
+		about.addActionListener(new D());
+		FlowLayout f=new FlowLayout();		
+		
+	
+
+		
+	}
+	//添加组件
+	public static void  init_widget()
+	{
+		main_layout.add(download);
+		main_layout.add(user_btn);
+		main_layout.add(about);
+		main_layout.add(user_btn);
+		main_layout.add(gun_pane);
+	}
+	//初始化框架
+	public static void init_Frame()
+	{
+		// cmd /k start
 		kde main_layout=new kde();
 		main_layout.setVisible(true);
 		main_layout.setSize(1024,800);
 		main_layout.setTitle("godot游戏平台");
-		//main_layout.setBackground(Color.yellow);
-		
-		Button user_btn=new Button("游客用户");
-		
-		Button download=new Button("下载客户端");
-		download.addActionListener(new D());
-		
-		Button about=new Button("关于");
-		about.addActionListener(new D());
-		//user_btn.setBounds(0,0,200,200);
-		
-		//about.setBounds(0,0,200,200);
-		//Panel root=new Panel();
-		
-		
-		//f.setAlignment(FlowLayout.RIGHT);
-		//f.addLayoutComponent("godot游戏平台",about);
-		//加载界面
-		//f.setBounds(0,0,200,200);
-		//main_layout.add(f);
-	
-
-		//根界面
-		//extends Object
-		FlowLayout f=new FlowLayout();
-				
-		//main_layout.add(root);
-		//滚动条
-		//Scrollbar bar=new Scrollbar(Scrollbar.VERTICAL,0,1,0,100);
-		//滚动panel
-		ScrollPane gun_pane=new ScrollPane(ScrollPane.SCROLLBARS_ALWAYS);
-		
-		//gun_pane.addImpl(about);
-		main_layout.add(gun_pane);
-		gun_pane.setBounds(0,0,500,500);
-		gun_pane.add(new item("testGame"));
-		
-		gun_pane.validate();
-		gun_pane.validate();
-		//
-		//----------
-		
-		//---------
-		
-
-		main_layout.add(download);
-		main_layout.add(user_btn);
-		main_layout.add(about);
-		
-		main_layout.add(user_btn);
-
-		main_layout.setLayout(f);
-		//f.addLayoutComponent("goa",about);
-		//main_layout.add(root);
-		//main_layout.add(f);
+		main_layout.setLayout(flow);
+	}
+	//main
+	public static void main(String[] args) 
+	{	
+		init_Frame();
+		init_layout();
+		init_widget();
+		main_layout.addNotify();
 		main_layout.addWindowListener(new WindowAdapter()
 		{
 		public void windowClosing(WindowEvent e)

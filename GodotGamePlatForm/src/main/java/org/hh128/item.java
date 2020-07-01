@@ -22,32 +22,9 @@ public class item extends Canvas implements Accessible
 	@Override
 	public void paint(Graphics g)
 	{ 
-	g.drawString(game_name,20,20);
+	g.drawString(game_name,0,0);
 	g.drawLine(20,40,40,40);
 	g.drawString("需要积分0",20,60);
-	//画图线程
-	new Thread()
-	{
-		@Override 
-		public void run()
-		{
-			while(true)
-			{
-			Easy.syso("开始绘画");
-			
-			Toolkit tool= Toolkit.getDefaultToolkit();
-			 img=tool.getImage("a.jpg");
-			Easy.syso("什么时候获得img",img);
-			//BufferedImage image = new BufferedImage(300,400,BufferedImage.TYPE_3BYTE_BGR);
-			Easy.syso("画图开始");
-			g.drawImage(img,0,0,null);
-			Easy.syso("画图结束");
-			
-			}//update(g);
-		}
-	}.run();
-
-		
 	}
 	public item(String gameName)
 	{
@@ -55,9 +32,8 @@ public class item extends Canvas implements Accessible
 		Easy.syso("被创建了");
 		Easy.syso(getName());
 		setVisible(true);
-		this.game_name=gameName;
-		validate();
 		
+		this.game_name=gameName;
 	}
 	
 
